@@ -1,2 +1,3 @@
 # ci-evidence-demo
-Disposable demo repo: CI evidence pack for security audit
+
+Disposable demo repository used to produce a CI evidence pack for a security audit. Safe to delete.

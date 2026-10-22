@@ -1,0 +1,23 @@
+name: Evidence Builder
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Write manifest
+        run: |
+          mkdir -p evidence
+          {
+            echo "repo: ${{ github.repository }}"
+            echo "run_number: ${{ github.run_number }}"
+            echo "date: $(date -u +%Y-%m-%d)"
+          } > evidence/manifest.txt
+          cat evidence/manifest.txt
+      - name: Upload evidence manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidence-manifest
+          path: evidence/manifest.txt
